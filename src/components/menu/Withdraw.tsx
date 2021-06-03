@@ -15,6 +15,7 @@ interface AccountType {
 }
 
 const Withdraw = () => {
+  const [initialBalance, setInitialBalance] = useState(0)
   const [accountsList, setAccountsList] = useState<AccountType[]>([]);
   const ctx = useContext(AuthContext);
   const balance = ctx.balance;
@@ -40,6 +41,7 @@ const Withdraw = () => {
         0
       );
       localStorage.setItem('balance', totalBalance);
+      setInitialBalance(totalBalance);
       setAccountsList(data);
     };
     fetchAccounts().catch((err) => console.log(err.message));
@@ -188,7 +190,7 @@ const Withdraw = () => {
                   </td>
                   <td></td>
                   <td>
-                    <p>R {balance}</p>
+                    <p>R {!balance ? initialBalance : balance}</p>
                   </td>
                   <td></td>
                 </tr>
