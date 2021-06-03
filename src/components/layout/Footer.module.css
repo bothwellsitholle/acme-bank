@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.footer__title{
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  color: #d62222;
+}
